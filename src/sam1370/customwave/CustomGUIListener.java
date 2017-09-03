@@ -20,6 +20,7 @@ import com.projectkorra.projectkorra.ability.CoreAbility;
 public class CustomGUIListener implements Listener {
     
     /* Things that need to be declared */
+    
     static Object[] default_map = {5, State.Water};
     private ItemStack waveItem = createItem(Material.STAINED_GLASS, colorize("&fYour &bCustomWave"),
 	    colorize("&fSize: &b" + default_map[0] + "||&fState: &b" + default_map[1].toString()), null);
