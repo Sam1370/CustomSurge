@@ -1,4 +1,4 @@
-package sam1370.customsurge;
+package sam1370.customwave;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -7,9 +7,9 @@ import com.projectkorra.projectkorra.ProjectKorra;
 import com.projectkorra.projectkorra.ability.AddonAbility;
 import com.projectkorra.projectkorra.ability.WaterAbility;
 
-public class CustomSurge extends WaterAbility implements AddonAbility {
+public class CustomWave extends WaterAbility implements AddonAbility {
 
-    public CustomSurge(Player player) {
+    public CustomWave(Player player) {
 	super(player);
     }
 
@@ -56,7 +56,7 @@ public class CustomSurge extends WaterAbility implements AddonAbility {
     @Override
     public void load() {
 	// Register events for CustomSurgeListener
-	ProjectKorra.plugin.getServer().getPluginManager().registerEvents(new CustomSurgeListener(),
+	ProjectKorra.plugin.getServer().getPluginManager().registerEvents(new CustomWaveListener(),
 		ProjectKorra.plugin);
 	// Register events for CustomGUIListener
 	ProjectKorra.plugin.getServer().getPluginManager().registerEvents(new CustomGUIListener(), ProjectKorra.plugin);

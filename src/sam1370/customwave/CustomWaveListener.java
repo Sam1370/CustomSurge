@@ -1,7 +1,7 @@
-package sam1370.customsurge;
+package sam1370.customwave;
 
 import org.bukkit.event.Listener;
 
-public class CustomSurgeListener implements Listener {
+public class CustomWaveListener implements Listener {
 
 }

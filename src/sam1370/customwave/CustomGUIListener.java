@@ -1,4 +1,4 @@
-package sam1370.customsurge;
+package sam1370.customwave;
 
 import org.bukkit.event.Listener;
 
