@@ -40,7 +40,7 @@ public class CustomWave extends WaterAbility implements AddonAbility {
 
     @Override
     public void progress() {
-
+	
     }
 
     @Override

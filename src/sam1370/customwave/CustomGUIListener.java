@@ -18,25 +18,13 @@ import com.projectkorra.projectkorra.BendingPlayer;
 import com.projectkorra.projectkorra.ability.CoreAbility;
 
 public class CustomGUIListener implements Listener {
-    /* Things that need to be declared */
     
-    private ItemStack pillarItem = createItem(Material.STAINED_GLASS, colorize("&fYour &aCustomPillar"),
-	    colorize("&fX: &a1||&fY: &a7||&fZ: &a1"), null);
+    /* Things that need to be declared */
+    static Object[] default_map = {5, State.Water};
+    private ItemStack waveItem = createItem(Material.STAINED_GLASS, colorize("&fYour &bCustomWave"),
+	    colorize("&fSize: &b" + default_map[0] + "||&fState: &b" + default_map[1].toString()), null);
     
     private Inventory gui = Bukkit.createInventory(null, 27, colorize("&aCustomPillars"));
-    private String changeX = colorize("&fChange the X of your CustomPillar");
-    private String changeY = changeX.replace("X", "Y");
-    private String changeZ = changeX.replace("X", "Z");
-
-    private String xUp = colorize("&fAdd 1 to the X of your CustomPillar");
-    private String xDown = xUp.replace("Add 1 to", "Remove 1 from");
-
-    private String yUp = xUp.replace("X", "Y");
-    private String yDown = xDown.replace("X", "Y");
-
-    private String zUp = xUp.replace("X", "Z");
-    private String zDown = xDown.replace("X", "Z");
-
     
     /*----------------------------------*/
     
@@ -58,29 +46,17 @@ public class CustomGUIListener implements Listener {
     
     // Opens the GUI
     private void openGui(PlayerAnimationEvent e) {
-	ItemStack xItem = createItem(Material.GRASS, colorize("&aX"), changeX);
-	ItemStack yItem = createItem(Material.GRASS, colorize("&aY"), changeY);
-	ItemStack zItem = createItem(Material.GRASS, colorize("&aZ"), changeZ);
 
-	ItemStack xUpItem = createUDItem(UD.UP, xUp);
-	ItemStack xDownItem = createUDItem(UD.DOWN, xDown);
-
-	ItemStack yUpItem = createUDItem(UD.UP, yUp);
-	ItemStack yDownItem = createUDItem(UD.DOWN, yDown);
-
-	ItemStack zUpItem = createUDItem(UD.UP, zUp);
-	ItemStack zDownItem = createUDItem(UD.DOWN, zDown);
-
-	gui.setItem(10, pillarItem);
-	gui.setItem(12, xItem);
-	gui.setItem(13, yItem);
-	gui.setItem(14, zItem);
-	gui.setItem(3, xUpItem);
-	gui.setItem(21, xDownItem);
-	gui.setItem(4, yUpItem);
-	gui.setItem(22, yDownItem);
-	gui.setItem(5, zUpItem);
-	gui.setItem(23, zDownItem);
+	gui.setItem(10, null);
+	gui.setItem(12, null);
+	gui.setItem(13, null);
+	gui.setItem(14, null);
+	gui.setItem(3, null);
+	gui.setItem(21, null);
+	gui.setItem(4, null);
+	gui.setItem(22, null);
+	gui.setItem(5, null);
+	gui.setItem(23, null);
 
 	Player p = e.getPlayer();
 	p.openInventory(gui);
@@ -88,9 +64,9 @@ public class CustomGUIListener implements Listener {
     
 
     // Create a new up or down item //
-    private ItemStack createUDItem(UD ud, String name) {
+    private ItemStack createUDItem(up_down ud, String name) {
 	ItemStack i;
-	if (ud.equals(UD.UP)) {
+	if (ud.equals(up_down.UP)) {
 	    i = createItem(Material.STAINED_GLASS_PANE, name, 5);
 	} else {
 	    i = createItem(Material.STAINED_GLASS_PANE, name, 14);
