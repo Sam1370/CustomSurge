@@ -1,2 +1,2 @@
-# CustomSurge
-CustomSurge for ProjectKorra
+# CustomWave
+CustomWave for ProjectKorra
