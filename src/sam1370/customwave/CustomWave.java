@@ -47,6 +47,11 @@ public class CustomWave extends WaterAbility implements AddonAbility {
 	public String getAuthor() {
 		return "Sam1370 and xNuminousx";
 	}
+	
+	@Override
+	public String getDescription() {
+		return "Choose how your wave will look like" + getElement().getColor() + "\n[Instructions here]";
+	}
 
 	@Override
 	public String getVersion() {
@@ -58,8 +63,10 @@ public class CustomWave extends WaterAbility implements AddonAbility {
 		// Register events for CustomSurgeListener
 		ProjectKorra.plugin.getServer().getPluginManager().registerEvents(new CustomWaveListener(),
 				ProjectKorra.plugin);
+		
 		// Register events for CustomGUIListener
 		ProjectKorra.plugin.getServer().getPluginManager().registerEvents(new CustomGUIListener(), ProjectKorra.plugin);
+		
 		// Enable message
 		ProjectKorra.log.info(getName() + " " + getVersion() + " by " + getAuthor() + " has been loaded and enabled!");
 	}
