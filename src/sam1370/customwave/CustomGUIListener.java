@@ -1,6 +1,8 @@
 package sam1370.customwave;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
@@ -21,10 +23,15 @@ public class CustomGUIListener implements Listener {
     
     /* Things that need to be declared */
     
-    static Object[] default_map = {5, State.Water};
-    private ItemStack waveItem = createItem(Material.STAINED_GLASS, colorize("&fYour &bCustomWave"),
-	    colorize("&fSize: &b" + default_map[0] + "||&fState: &b" + default_map[1].toString()), null);
+    // The HashMap that stores the player values
+    static Map<Player, Object[]> dimensions = new HashMap<Player, Object[]>();
     
+    // Default values for the HashMap
+    static Object[] default_map = {5, State.Water};
+    // The wave item
+    private ItemStack waveItem = createItem(Material.STAINED_GLASS, colorize("&fYour &bCustomWave"),
+	    colorize("&fSize: &b" + default_map[0] + "||&fState: &b" + default_map[1].toString()));
+    // The GUI
     private Inventory gui = Bukkit.createInventory(null, 27, colorize("&aCustomPillars"));
     
     /*----------------------------------*/
@@ -47,8 +54,9 @@ public class CustomGUIListener implements Listener {
     
     // Opens the GUI
     private void openGui(PlayerAnimationEvent e) {
-
-	gui.setItem(10, null);
+	
+	
+	gui.setItem(10, waveItem);
 	gui.setItem(12, null);
 	gui.setItem(13, null);
 	gui.setItem(14, null);
